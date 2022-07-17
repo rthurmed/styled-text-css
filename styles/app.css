@@ -1,8 +1,9 @@
 :root {
   --color: black;
   --light: white;
+  --medium-color: #888;
   --darker: #333;
-  --lighter: lightgrey;
+  --lighter: #ccc;
 
   --font-size: 14pt;
   --default-space: 1em;
@@ -115,6 +116,43 @@ ol ol {
 
 summary {
   cursor: pointer;
+}
+
+kbd {
+  background-color: var(--darker);
+  color: var(--light);
+}
+
+kbd::selection {
+  color: var(--lighter);
+  background-color: var(--color);
+}
+
+kbd::before {
+  content: '[';
+}
+
+kbd::after {
+  content: ']';
+}
+
+code {
+  color: var(--light);
+  background-color: var(--color);
+}
+
+code::selection {
+  color: var(--medium-color);
+  background-color: var(--color);
+}
+
+pre {
+  background-color: var(--lighter);
+  padding: 1em;
+}
+
+pre::selection {
+  background-color: var(--medium-color);
 }
 
 /*  */
