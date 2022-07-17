@@ -31,6 +31,18 @@
   border: none;
   box-sizing: border-box;
   background-color: transparent;
+  outline: none;
+}
+
+*:focus {
+  font-weight: bold;
+  /* focus outline? */
+  /* outline: solid var(--lighter) var(--border-size); */
+}
+
+*:disabled {
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed !important;
 }
 
 body {
@@ -101,6 +113,10 @@ ol ol {
   padding-left: 1.2em;
 }
 
+summary {
+  cursor: pointer;
+}
+
 /*  */
 /* FORM */
 /*  */
@@ -111,21 +127,12 @@ input[type=submit] {
   cursor: pointer;
 }
 
-label:hover,
-input:hover,
-button:hover {
+:is(label, input, button):hover {
   font-weight: bold;
 }
 
 label {
   white-space: nowrap;
-}
-
-input:disabled,
-fieldset:disabled,
-button:disabled {
-  opacity: var(--disabled-opacity);
-  cursor: not-allowed !important;
 }
 
 input[type=checkbox] {
@@ -156,16 +163,16 @@ input[type=radio]:checked::before {
   content: '(*)';
 }
 
-input[type=email],
-input[type=text],
-input[type=tel] {
+/* any field with underline */
+:is(input[type=email], input[type=text], input[type=tel]) {
   appearance: none;
   max-width: 100%;
   border-bottom: var(--border-size) var(--border-color) dashed;
   margin-bottom: calc(var(--border-size) * -1);
 }
 
-input[type=text]:hover {
+:is(input[type=email], input[type=text], input[type=tel]):hover,
+:is(input[type=email], input[type=text], input[type=tel]):focus {
   border-bottom-width: calc(var(--border-size) * 2);
   margin-bottom: calc(var(--border-size) * -1 * 2);
 }
